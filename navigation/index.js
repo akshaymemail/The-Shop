@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Products from '../screens/Shop/Products'
+import { Colors } from '../constants/Colors'
 
 export default function Navigator() {
   const Stack = createNativeStackNavigator()
@@ -12,12 +13,13 @@ export default function Navigator() {
         initialRouteName="home"
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#ff0000',
+            backgroundColor: Colors.primary,
           },
           headerTintColor: '#f1f1f1',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+          statusBarStyle: 'light',
         }}
       >
         <Stack.Screen
