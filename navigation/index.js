@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Products from '../screens/Shop/Products'
 import { Colors } from '../constants/Colors'
+import ProductDetails from '../screens/Shop/ProductDetails'
 
 export default function Navigator() {
   const Stack = createNativeStackNavigator()
@@ -26,6 +27,11 @@ export default function Navigator() {
           name="home"
           component={Products}
           options={{ title: 'Products' }}
+        />
+        <Stack.Screen
+          name="productDetails"
+          component={ProductDetails}
+          options={({ route }) => ({ title: route.params.item.title })}
         />
       </Stack.Navigator>
     </NavigationContainer>

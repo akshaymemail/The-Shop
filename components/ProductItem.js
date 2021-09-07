@@ -10,9 +10,16 @@ import {
 import { Colors } from '../constants/Colors'
 import { Ionicons, Feather } from '@expo/vector-icons'
 
-export default function ProductItem({ item, onDetails, onAddToCart }) {
+export default function ProductItem({
+  item,
+  onDetails,
+  onAddToCart,
+  navigation,
+}) {
   return (
-    <TouchableNativeFeedback>
+    <TouchableNativeFeedback
+      onPress={() => navigation.navigate('productDetails', { item })}
+    >
       <View style={styles.product}>
         <Image style={styles.image} source={{ uri: item.imageUrl }} />
         <View style={styles.details}>

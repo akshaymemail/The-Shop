@@ -4,14 +4,9 @@ import { useSelector } from 'react-redux'
 import ProductItem from '../../components/ProductItem'
 import { Colors } from '../../constants/Colors'
 
-export default function Products() {
+export default function Products({ navigation }) {
   const { products } = useSelector((state) => state.products)
-  const onDetails = () => {
-    alert('Details!')
-  }
-  const onAddToCart = () => {
-    alert('Added to card!')
-  }
+
   return (
     <View style={styles.screen}>
       <FlatList
@@ -19,8 +14,11 @@ export default function Products() {
         renderItem={({ item }) => (
           <ProductItem
             item={item}
-            onDetails={onDetails}
-            onAddToCart={onAddToCart}
+            onDetails={() => {
+              navigation.navigate('productDetails', { item })
+            }}
+            onAddToCart={() => alert('Add to cart')}
+            navigation={navigation}
           />
         )}
       />
