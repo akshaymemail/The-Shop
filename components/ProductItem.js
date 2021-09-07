@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   Image,
   TouchableNativeFeedback,
 } from 'react-native'
@@ -24,7 +23,7 @@ export default function ProductItem({
         <Image style={styles.image} source={{ uri: item.imageUrl }} />
         <View style={styles.details}>
           <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.price}>INR {item.price}</Text>
+          <Text style={styles.price}>INR {item.price.toFixed(2)}</Text>
         </View>
         <View style={styles.action}>
           <Feather
